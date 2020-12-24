@@ -7,11 +7,16 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import { req } from "@/api";
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  async created() {
+    const { data } = await req()
+    console.log(data)
   }
 }
 </script>
