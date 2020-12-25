@@ -1,22 +1,58 @@
 <template>
-  <div id="chats">
-
+  <div id="chats" v-if="chatArray.length">
+    <div v-for="content in chatArray" :key="content.date">
+      <SplitByDate
+        :date="content.date"
+        :value="content.value"
+      />
+      <hr>
+    </div>
   </div>
 </template>
 
 <script>
   import { req } from "@/api";
+  import SplitByDate from "@/components/Chatroom/Contents/SplitByDate";
 
   export default {
     name: "Contents",
+    components: {
+      SplitByDate
+    },
+    methods: {
+      sortObj(obj) {
+        let res = []
+        for (let [key, value] of Object.entries(obj)) {
+          res.push({ date: key, value })
+        }
+        res.sort((a,b) => {
+          let keyA = new Date(a.date)
+          let keyB = new Date(b.date)
+          if (keyA < keyB) return -1;
+          if (keyA > keyB) return 1;
+          return 0
+        })
+        return res
+      }
+    },
     data() {
       return {
-        chats: null
+        chats: {},
+        chatArray: []
       }
     },
     async created() {
       const { data } = await req()
-      this.chats = data
+      data.forEach(chat => {
+        let { created_at } = chat
+        let sliced = created_at.split(' ')[0]
+        if (this.chats[sliced] === undefined) {
+          this.chats[sliced] = [chat]
+        } else {
+          this.chats[sliced].push(chat)
+        }
+      })
+      this.chatArray = this.sortObj(this.chats)
     }
   }
 </script>
