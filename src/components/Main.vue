@@ -31,8 +31,7 @@
 
   export default {
     name: "Main",
-    components: {Button},
-    component: {
+    components: {
       Button
     },
     methods: {

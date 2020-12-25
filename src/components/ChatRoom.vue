@@ -1,12 +1,16 @@
 <template>
   <div id="chatroom">
-
+    <TopBar/>
   </div>
 </template>
 
 <script>
+  import TopBar from "@/components/Chatroom/TopBar";
   export default {
-    name: "ChatRoom"
+    name: "ChatRoom",
+    components: {
+      TopBar
+    }
   }
 </script>
 
