@@ -1,34 +1,29 @@
 <template>
-  <div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur cumque doloremque error illum inventore itaque laborum obcaecati, quae quam ullam voluptate! Assumenda eligendi nobis, nostrum quisquam quod ratione voluptatum!</p>
+  <div id="chats">
+
   </div>
 </template>
 
 <script>
+  import { req } from "@/api";
+
   export default {
-    name: "Contents"
+    name: "Contents",
+    data() {
+      return {
+        chats: null
+      }
+    },
+    async created() {
+      const { data } = await req()
+      this.chats = data
+    }
   }
 </script>
 
 <style scoped>
-
+  #chats {
+    height: 620px;
+    overflow-y: auto;
+  }
 </style>

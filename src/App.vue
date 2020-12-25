@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import { req } from "@/api";
 import ChatRoom from "@/components/ChatRoom";
 import Main from "@/components/Main";
 
@@ -16,10 +15,6 @@ export default {
     ChatRoom,
     Main
   },
-  async created() {
-    const { data } = await req()
-    console.log(data)
-  }
 }
 </script>
 

@@ -28,7 +28,6 @@
     height: 50px;
     background-color: white;
     position: sticky;
-    bottom: 0;
   }
   .input-icon {
     display: flex;
