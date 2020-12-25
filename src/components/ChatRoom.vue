@@ -1,6 +1,7 @@
 <template>
   <div id="chatroom">
     <TopBar/>
+    <Contents/>
     <Input/>
   </div>
 </template>
@@ -8,12 +9,14 @@
 <script>
   import TopBar from "@/components/Chatroom/TopBar";
   import Input from "@/components/Chatroom/Input";
+  import Contents from "@/components/Chatroom/Contents";
 
   export default {
     name: "ChatRoom",
     components: {
       TopBar,
-      Input
+      Input,
+      Contents
     }
   }
 </script>

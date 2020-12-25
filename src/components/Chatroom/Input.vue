@@ -27,7 +27,7 @@
     width: 360px;
     height: 50px;
     background-color: white;
-    position: absolute;
+    position: sticky;
     bottom: 0;
   }
   .input-icon {

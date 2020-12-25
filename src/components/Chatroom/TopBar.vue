@@ -13,6 +13,8 @@
 
 <style scoped>
   #top-bar {
+    position: sticky;
+    top: 0;
     width: 360px;
     height: 50px;
     background-color: white;
