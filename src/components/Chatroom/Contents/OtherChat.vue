@@ -8,13 +8,18 @@
       <div class="chat-text" v-if="chat.msg.mtype === 'text'">
         <p v-for="text in parseText" :key="text">{{ text }}</p>
       </div>
-      <div style="font-size: 0.5rem; align-self: flex-end">{{ parseTime }}</div>
+      <div style="align-self: flex-end">
+        <div style="display: flex">
+          <span @click="copyClipBoard(chat.msg.content)" style="cursor:pointer; font-size: 8px;">복사</span>
+        </div>
+        <div style="font-size: 0.5rem; align-self: flex-end">{{ parseTime }}</div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-  import { mapMutations } from 'vuex'
+  import { mapMutations, mapActions } from 'vuex'
 
   export default {
     name: "OtherChat",
@@ -32,6 +37,7 @@
     },
     methods: {
       ...mapMutations(["SET_ZOOM"]),
+      ...mapActions(["copyClipBoard"])
     },
     props: {
       chat: Object

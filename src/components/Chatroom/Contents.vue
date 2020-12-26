@@ -3,10 +3,10 @@
     <div id="chats" v-if="!clickZoom.zoom">
       <div v-for="content in chatArray" :key="content.date">
         <SplitByDate
+          v-if="content.value.length"
           :date="content.date"
           :value="content.value"
         />
-        <hr>
       </div>
     </div>
     <div class="zoom-photo" v-else>

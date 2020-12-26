@@ -4,16 +4,25 @@
       <div class="mychat-text" v-if="chat.msg.mtype === 'text'">
         <p v-for="text in parseText" :key="text">{{ text }}</p>
       </div>
-      <div style="font-size: 0.5rem; align-self: flex-end">{{ parseTime }}</div>
+      <div style="align-self: flex-end">
+        <div style="display: flex">
+          <span @click="copyClipBoard(chat.msg.content)" style="cursor:pointer; font-size: 8px; margin-right: 5px; margin-bottom: 4px">복사</span>
+          <span @click="removeMsg({date: date ,id: chat.id})" style="cursor:pointer; font-size: 8px;">삭제</span>
+        </div>
+        <div style="font-size: 0.5rem;">{{ parseTime }}</div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+
   export default {
     name: "MyChat",
     props: {
-      chat: Object
+      chat: Object,
+      date: String
     },
     computed: {
       parseText() {
@@ -26,6 +35,10 @@
           return `오후 ${Number(timeArr[0])-12}:${timeArr[1]}`
         } else return `오전 ${Number(timeArr[0])}:${timeArr[1]}`
       }
+    },
+    methods: {
+      ...mapActions(["copyClipBoard", "removeMsg"]),
+
     }
   }
 </script>

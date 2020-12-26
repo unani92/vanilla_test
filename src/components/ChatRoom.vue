@@ -1,6 +1,9 @@
 <template>
   <div id="chatroom">
     <TopBar/>
+    <div v-if="clickMsgMenu.fire" class="system-msg">
+      {{ clickMsgMenu.msg }}
+    </div>
     <Contents/>
     <Input/>
   </div>
@@ -10,6 +13,7 @@
   import TopBar from "@/components/Chatroom/TopBar";
   import Input from "@/components/Chatroom/Input";
   import Contents from "@/components/Chatroom/Contents";
+  import { mapState } from 'vuex'
 
   export default {
     name: "ChatRoom",
@@ -19,7 +23,8 @@
       Contents
     },
     computed: {
-    }
+      ...mapState(["clickMsgMenu"])
+    },
   }
 </script>
 
@@ -31,5 +36,18 @@
     background-color: #F6F6F8;
     overflow-y: auto;
     border-radius: 5px;
+  }
+  .system-msg {
+    width: 360px;
+    height: 50px;
+    background-color: #654ea3;
+    position: absolute;
+    z-index: 999999;
+    top: 50px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
 </style>

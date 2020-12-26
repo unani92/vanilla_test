@@ -8,9 +8,10 @@
         <OtherChat :chat="chat"/>
       </div>
       <div v-else>
-        <MyChat :chat="chat"/>
+        <MyChat :date="date" :chat="chat"/>
       </div>
     </div>
+    <hr>
   </div>
 </template>
 
