@@ -1,7 +1,7 @@
 <template>
   <div class="other-chat">
     <div class="profile">
-      <img :src="chat.photo_url" alt="">
+      <img @click="SET_ZOOM(chat.photo_url)" :src="chat.photo_url" alt="">
       <span>{{ chat.user_name }}</span>
     </div>
     <div class="chat">
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+  import { mapMutations } from 'vuex'
+
   export default {
     name: "OtherChat",
     computed: {
@@ -27,6 +29,9 @@
           return `오후 ${Number(timeArr[0])-12}:${timeArr[1]}`
         } else return `오전 ${Number(timeArr[0])}:${timeArr[1]}`
       }
+    },
+    methods: {
+      ...mapMutations(["SET_ZOOM"]),
     },
     props: {
       chat: Object
@@ -46,6 +51,7 @@
     height: auto;
     border-radius: 3px;
     margin: 0 8px;
+    cursor: pointer;
   }
   .profile span {
     font-size: 12px;

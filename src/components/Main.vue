@@ -2,12 +2,11 @@
   <div id="main">
     <h1>Vanilla Bridge</h1>
     <div>
-      <p>마음에 드는 이성과</p>
-      <p>대화를 나눠보세요!!!</p>
+      <p>내 스타일에 맞게</p>
+      <p>사람이 해주는 진짜 소개팅</p>
       <div class="btns">
         <Button name="다크모드"/>
         <Button name="라이트모드"/>
-        <Button name="배경사진 추가"/>
       </div>
     </div>
     <div class="app-stores">

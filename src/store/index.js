@@ -9,7 +9,11 @@ export default new Vuex.Store({
     id: 48,
     chats: JSON.parse(sessionStorage.getItem('chats')),
     chatArray: JSON.parse(sessionStorage.getItem('chat-array')),
-    darkMode: false
+    darkMode: false,
+    clickZoom: {
+      zoom: false,
+      url: null
+    }
   },
   mutations: {
     SET_CHATS(state, value) {
@@ -20,6 +24,19 @@ export default new Vuex.Store({
     },
     SET_ID(state) {
       state.id ++
+    },
+    SET_ZOOM(state, value) {
+      if (state.clickZoom.zoom) {
+        state.clickZoom = {
+          zoom: !state.clickZoom.zoom,
+          url: null
+        }
+      } else {
+        state.clickZoom = {
+          zoom: !state.clickZoom.zoom,
+          url: value
+        }
+      }
     }
   },
   actions: {
