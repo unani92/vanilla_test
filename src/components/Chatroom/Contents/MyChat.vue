@@ -56,7 +56,7 @@
     border-radius: 12px;
     background-color: #8A74FF;
     color: white;
-    max-width: 230px;
+    max-width: 220px;
     margin: 0 1rem;
     font-size: 1rem;
     padding: 0.7rem;
