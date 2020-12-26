@@ -12,6 +12,7 @@
 
 <script>
   import { req } from "@/api";
+  import { sortObj, scrollBottom } from "@/utils";
   import SplitByDate from "@/components/Chatroom/Contents/SplitByDate";
 
   export default {
@@ -20,24 +21,7 @@
       SplitByDate
     },
     methods: {
-      sortObj(obj) {
-        let res = []
-        for (let [key, value] of Object.entries(obj)) {
-          res.push({ date: key, value })
-        }
-        res.sort((a,b) => {
-          let keyA = new Date(a.date)
-          let keyB = new Date(b.date)
-          if (keyA < keyB) return -1;
-          if (keyA > keyB) return 1;
-          return 0
-        })
-        return res
-      },
-      scrollBottom() {
-        let container = document.getElementById('chats')
-        container.scrollTop = container.scrollHeight
-      }
+
     },
     data() {
       return {
@@ -56,11 +40,12 @@
           this.chats[sliced].push(chat)
         }
       })
-      this.chatArray = this.sortObj(this.chats)
-
+      console.log(this.chats)
+      this.chatArray = sortObj(this.chats, false)
+      console.log(this.chatArray)
     },
     mounted() {
-      // setTimeout(this.scrollBottom, 100)
+      setTimeout(scrollBottom, 100)
     },
   }
 </script>

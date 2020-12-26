@@ -58,7 +58,7 @@
     border-radius: 0 12px 12px 12px;
     background-color: white;
     color: black;
-    width: 230px;
+    max-width: 220px;
     margin-right: 1rem;
     font-size: 1rem;
     padding: 0.7rem;

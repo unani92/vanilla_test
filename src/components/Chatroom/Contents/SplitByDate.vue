@@ -3,7 +3,7 @@
     <div class="date">
       {{ parsedDate }}
     </div>
-    <div v-for="chat in value" :key="chat.id">
+    <div v-for="chat in sortVal" :key="chat.id">
       <div v-if="chat.user_name === '주선자'">
         <OtherChat :chat="chat"/>
       </div>
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+  import { sortObj } from "@/utils";
   import OtherChat from "@/components/Chatroom/Contents/OtherChat";
   import MyChat from "@/components/Chatroom/Contents/MyChat";
 
@@ -32,8 +33,11 @@
       parsedDate() {
         let dateArr = this.date.split('-')
         return `${dateArr[0]}년 ${dateArr[1]}월 ${dateArr[2]}일`
+      },
+      sortVal() {
+        return sortObj(this.value, true)
       }
-    }
+    },
   }
 </script>
 

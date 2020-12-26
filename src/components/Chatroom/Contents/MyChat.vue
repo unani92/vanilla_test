@@ -1,10 +1,10 @@
 <template>
   <div class="my-chat">
     <div class="mychat-box">
-      <div style="font-size: 0.5rem; align-self: flex-end">{{ parseTime }}</div>
       <div class="mychat-text" v-if="chat.msg.mtype === 'text'">
         <p v-for="text in parseText" :key="text">{{ text }}</p>
       </div>
+      <div style="font-size: 0.5rem; align-self: flex-end">{{ parseTime }}</div>
     </div>
   </div>
 </template>
@@ -36,14 +36,15 @@
   }
   .mychat-box {
     display: flex;
+    flex-direction: row-reverse;
     margin-left: 2rem;
   }
   .mychat-text {
     border-radius: 12px;
     background-color: #8A74FF;
     color: white;
-    width: 230px;
-    margin-left: 1rem;
+    max-width: 230px;
+    margin: 0 1rem;
     font-size: 1rem;
     padding: 0.7rem;
     display: flex;
