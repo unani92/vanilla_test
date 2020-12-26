@@ -17,6 +17,8 @@
       TopBar,
       Input,
       Contents
+    },
+    computed: {
     }
   }
 </script>

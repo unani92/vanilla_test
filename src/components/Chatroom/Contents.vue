@@ -12,8 +12,9 @@
 
 <script>
   import { req } from "@/api";
-  import { sortObj, scrollBottom } from "@/utils";
+  import { scrollBottom } from "@/utils";
   import SplitByDate from "@/components/Chatroom/Contents/SplitByDate";
+  import { mapState, mapMutations } from 'vuex'
 
   export default {
     name: "Contents",
@@ -21,26 +22,24 @@
       SplitByDate
     },
     methods: {
-
+      ...mapMutations(["SET_CHATS"])
     },
-    data() {
-      return {
-        chats: {},
-        chatArray: []
-      }
+    computed: {
+      ...mapState(["chats", "chatArray"]),
     },
-    async created() {
+    async beforeCreate() {
+      let res = {}
       const { data } = await req()
       data.forEach(chat => {
         let { created_at } = chat
         let sliced = created_at.split(' ')[0]
-        if (this.chats[sliced] === undefined) {
-          this.chats[sliced] = [chat]
+        if (res[sliced] === undefined) {
+          res[sliced] = [chat]
         } else {
-          this.chats[sliced].push(chat)
+          res[sliced].push(chat)
         }
       })
-      this.chatArray = sortObj(this.chats, false)
+      this.SET_CHATS(res)
     },
     mounted() {
       setTimeout(scrollBottom, 100)

@@ -1,11 +1,10 @@
 <template>
   <div id="input-container">
     <div class="input-icon">
-      <input
-        type="text"
+      <textarea
         placeholder="메시지를 입력하세요"
         v-model="inputText"
-      >
+      />
       <i v-show="inputText" class="fas fa-arrow-circle-up"></i>
     </div>
   </div>
@@ -35,17 +34,23 @@
     align-items: center;
     padding-top: 6px
   }
-  input {
+  textarea {
     width: 85%;
-    height: 35px;
+    height: 20px;
     border: 1px solid #aaaab4;
     border-radius: 10px;
     background-color: #F6F6F8;
-    padding: 0 2rem 0 0.5rem;
+    padding: 0.7rem 2rem 0.3rem 0.5rem;
     position: relative;
+    resize: none;
   }
-  input:focus {
+  textarea:focus {
     outline: none;
+  }
+  textarea::placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   i {
     color: #8A74FF;
