@@ -6,14 +6,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    id: 48,
     chats: JSON.parse(sessionStorage.getItem('chats')),
     chatArray: JSON.parse(sessionStorage.getItem('chat-array')),
     darkMode: false
-  },
-  getters: {
-    chartsArray: state => {
-      return sortObj(state.chats, false)
-    }
   },
   mutations: {
     SET_CHATS(state, value) {
@@ -22,6 +18,9 @@ export default new Vuex.Store({
       sessionStorage.setItem('chat-array', JSON.stringify(state.chatArray))
       sessionStorage.setItem('chats', JSON.stringify(value))
     },
+    SET_ID(state) {
+      state.id ++
+    }
   },
   actions: {
   },

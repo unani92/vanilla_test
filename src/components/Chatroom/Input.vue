@@ -4,6 +4,7 @@
       <textarea
         placeholder="메시지를 입력하세요"
         v-model="inputText"
+        @keypress.enter="submitInput"
       />
       <i v-show="inputText" class="fas fa-arrow-circle-up"></i>
     </div>
@@ -11,11 +12,51 @@
 </template>
 
 <script>
+  import { mapState, mapMutations } from 'vuex'
+  import { scrollBottom } from "@/utils";
+
   export default {
     name: "Input",
     data() {
       return {
         inputText: null
+      }
+    },
+    computed: {
+      ...mapState(['chats', 'id'])
+    },
+    methods: {
+      ...mapMutations(['SET_CHATS', "SET_ID"]),
+      submitInput(e) {
+        if (!e.shiftKey && e.key === "Enter") {
+          e.preventDefault()
+          let now = new Date();
+          let created_at = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
+          let sliced = created_at.split(' ')[0]
+          let res = this.chats
+          let newNode = {
+            created_at,
+            id: this.id + 1,
+            msg: {
+              content: e.target.value,
+              mtype: "text"
+            },
+            photo_url: "https://photo.vanillabridge.com/app_photos/agent_woman.jpg",
+            user_id: 1,
+            user_name: "소개녀"
+          }
+          if (res[sliced] === undefined) {
+            res[sliced] = [newNode]
+          } else {
+            res[sliced].push(newNode)
+          }
+          this.SET_CHATS(res)
+          this.SET_ID()
+          this.inputText = null
+          setTimeout(scrollBottom, 100)
+        } else {
+          this.inputText = this.inputText + "\\n"
+        }
       }
     }
   }

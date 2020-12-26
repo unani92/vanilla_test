@@ -27,7 +27,7 @@
     computed: {
       ...mapState(["chats", "chatArray"]),
     },
-    async beforeCreate() {
+    async created() {
       let res = {}
       const { data } = await req()
       data.forEach(chat => {
