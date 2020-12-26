@@ -54,7 +54,7 @@
   }
   img {
     width: 30px;
-    height: auto;
+    height: 30px;
     border-radius: 3px;
     margin: 0 8px;
     cursor: pointer;

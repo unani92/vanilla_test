@@ -22,7 +22,7 @@
 
 <style scoped>
   #top-bar {
-    position: sticky;
+    position: absolute;
     top: 0;
     width: 360px;
     height: 50px;

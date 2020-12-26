@@ -1,5 +1,5 @@
 <template>
-  <div class="btn" @click="SET_DARKMODE">
+  <div class="btn" @click="changeMode">
     {{ name }}
   </div>
 </template>
@@ -18,6 +18,19 @@
     },
     methods: {
       ...mapMutations(["SET_DARKMODE"]),
+      changeMode() {
+        if (this.name === '다크모드') {
+          if (!this.darkMode) {
+            let btn = document.getElementById("switch")
+            btn.click()
+          }
+        } else {
+          if (this.darkMode) {
+            let btn = document.getElementById("switch")
+            btn.click()
+          }
+        }
+      }
     }
   }
 </script>

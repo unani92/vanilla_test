@@ -71,7 +71,8 @@
     width: 360px;
     height: 50px;
     background-color: white;
-    position: sticky;
+    position: absolute;
+    bottom: 0;
   }
   .input-icon {
     display: flex;

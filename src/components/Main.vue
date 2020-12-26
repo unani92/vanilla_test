@@ -74,4 +74,9 @@
   .app-stores {
     display: flex;
   }
+  @media (max-width: 800px) {
+    #main {
+      display: none;
+    }
+  }
 </style>
