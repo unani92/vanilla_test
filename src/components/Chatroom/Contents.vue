@@ -1,5 +1,5 @@
 <template>
-  <div id="chats" v-if="chatArray.length">
+  <div id="chats">
     <div v-for="content in chatArray" :key="content.date">
       <SplitByDate
         :date="content.date"
@@ -33,6 +33,10 @@
           return 0
         })
         return res
+      },
+      scrollBottom() {
+        let container = document.getElementById('chats')
+        container.scrollTop = container.scrollHeight
       }
     },
     data() {
@@ -53,7 +57,11 @@
         }
       })
       this.chatArray = this.sortObj(this.chats)
-    }
+
+    },
+    mounted() {
+      // setTimeout(this.scrollBottom, 100)
+    },
   }
 </script>
 

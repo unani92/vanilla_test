@@ -36,7 +36,7 @@
 
 <style scoped>
   .other-chat {
-    position: relative;
+    margin: 1rem 0;
   }
   .profile {
     display: flex;
@@ -52,14 +52,14 @@
   }
   .chat {
     display: flex;
-    margin: 1rem 0;
+    margin-left: 2.5rem;
   }
   .chat-text {
     border-radius: 0 12px 12px 12px;
     background-color: white;
     color: black;
-    width: 250px;
-    margin: 0 1rem;
+    width: 230px;
+    margin-right: 1rem;
     font-size: 1rem;
     padding: 0.7rem;
   }
