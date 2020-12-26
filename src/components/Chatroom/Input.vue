@@ -1,7 +1,8 @@
 <template>
-  <div id="input-container">
+  <div id="input-container" :class="{dark: darkMode}">
     <div class="input-icon">
       <textarea
+        :class="{'dark-textarea': darkMode}"
         placeholder="메시지를 입력하세요"
         v-model="inputText"
         @keypress.enter="submitInput"
@@ -23,7 +24,7 @@
       }
     },
     computed: {
-      ...mapState(['chats', 'id'])
+      ...mapState(['chats', 'id', "darkMode"])
     },
     methods: {
       ...mapMutations(['SET_CHATS', "SET_ID"]),
@@ -106,5 +107,17 @@
     text-align: right;
     margin-right: 1rem;
     cursor: pointer;
+  }
+  .dark {
+    background-color: #1b1d21 !important;
+    color: white !important;
+  }
+  .dark-textarea {
+    background-color: #2c3036 !important;
+    border: 1px solid #64646e !important;
+    color: white !important;
+  }
+  .dark-textarea::placeholder {
+    color: white !important;
   }
 </style>

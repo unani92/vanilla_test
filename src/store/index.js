@@ -20,6 +20,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    SET_DARKMODE(state) {
+      state.darkMode = !state.darkMode
+    },
     SET_CHATS(state, value) {
       state.chats = value
       state.chatArray = sortObj(value, false)

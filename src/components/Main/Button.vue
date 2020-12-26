@@ -1,15 +1,23 @@
 <template>
-  <div class="btn">
+  <div class="btn" @click="SET_DARKMODE">
     {{ name }}
   </div>
 </template>
 
 <script>
+  import { mapMutations, mapState } from "vuex";
+
   export default {
     name: "Button",
     props: {
       name: String,
       color: String
+    },
+    computed: {
+      ...mapState(['darkMode'])
+    },
+    methods: {
+      ...mapMutations(["SET_DARKMODE"]),
     }
   }
 </script>

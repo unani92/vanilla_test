@@ -27,13 +27,18 @@
 
 <script>
   import Button from "@/components/Main/Button";
+  import { mapState, mapMutations } from 'vuex'
 
   export default {
     name: "Main",
     components: {
       Button
     },
+    computed: {
+      ...mapState(['darkMode'])
+    },
     methods: {
+      ...mapMutations(["SET_DARKMODE"]),
       goAppStore(platform) {
         if (platform === 'google') window.open("https://play.google.com/store/apps/details?id=com.vanillabridge.app")
         else if (platform === 'apple') window.open("https://apps.apple.com/us/app/%EB%B0%94%EB%8B%90%EB%9D%BC%EB%B8%8C%EB%A6%BF%EC%A7%80/id1219876826?app=itunes&ign-mpt=uo%3D4")

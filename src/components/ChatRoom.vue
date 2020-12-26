@@ -1,5 +1,5 @@
 <template>
-  <div id="chatroom">
+  <div id="chatroom" :class="{dark: darkMode}">
     <TopBar/>
     <div v-if="clickMsgMenu.fire" class="system-msg">
       {{ clickMsgMenu.msg }}
@@ -23,7 +23,7 @@
       Contents
     },
     computed: {
-      ...mapState(["clickMsgMenu"])
+      ...mapState(["clickMsgMenu", "darkMode"])
     },
   }
 </script>
@@ -48,6 +48,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+  }
+  .dark {
+    background-color: #1b1d21 !important;
+    color: white !important;
   }
 </style>
