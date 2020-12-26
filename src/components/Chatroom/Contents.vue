@@ -40,9 +40,7 @@
           this.chats[sliced].push(chat)
         }
       })
-      console.log(this.chats)
       this.chatArray = sortObj(this.chats, false)
-      console.log(this.chatArray)
     },
     mounted() {
       setTimeout(scrollBottom, 100)

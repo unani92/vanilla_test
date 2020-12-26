@@ -6,7 +6,7 @@
         placeholder="메시지를 입력하세요"
         v-model="inputText"
       >
-      <i class="fas fa-arrow-circle-up"></i>
+      <i v-show="inputText" class="fas fa-arrow-circle-up"></i>
     </div>
   </div>
 </template>
